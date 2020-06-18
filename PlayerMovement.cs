@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         else if(touchTime>0.01){
             spRend.sprite = clickedSprite;
         }
+        //start timer after touch
         if (Input.GetMouseButtonDown(0))
         {
             firstClick = true;
@@ -64,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
             spRend.sprite = defaultSprite;
             
         }
+        //when finger is released add force
         if(Input.GetMouseButtonUp(0)&&firstClick)
             {
                 clicked = false;

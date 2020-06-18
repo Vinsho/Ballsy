@@ -42,7 +42,7 @@ public class StoryMovement : PlayerMovement
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //Check for a match with the specified name on any GameObject that collides with your GameObject
+        //Checks for a match with the specified name on any GameObject that collides with GameObject
         if (collision.gameObject.tag == "Finish")
         {
             progress.SaveProgress((SceneManager.GetActiveScene().buildIndex+1));
@@ -63,6 +63,7 @@ public class StoryMovement : PlayerMovement
     }
     void OnCollisionExit2D(Collision2D collisionInfo)
     {
+        //freeze when player touches floater
         if (collisionInfo.gameObject.tag == "Floater"){
             movinPermission=true;
             playerBody.transform.parent = null;
@@ -71,11 +72,13 @@ public class StoryMovement : PlayerMovement
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        //set helpjump to true after picking up blue pill
         if(other.gameObject.tag == "HelpJump"){
             base.helpJump = true;
             base.helpJumpParticles.SetActive(true);
             Destroy(other.gameObject);
         }
+        //resize player after picking up redpill
         if(other.gameObject.tag == "RedPill"){
             if(playerBody.transform.localScale.x==1){
                 playerBody.transform.localScale -= new Vector3(0.5f,0.5f,0);
@@ -83,7 +86,7 @@ public class StoryMovement : PlayerMovement
             else{
                 playerBody.transform.localScale += new Vector3(0.5f,0.5f,0);
             }
-            
+            //remove picked up object
             Destroy(other.gameObject);
         }
     }

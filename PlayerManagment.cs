@@ -32,6 +32,7 @@ public class PlayerManagment : MonoBehaviour
     // Update is called once per frame
     public void DoUpdate()
     {
+        //update help jump loading bar
         if(playerMovement.helpJump){
             barDisplay=1.0f;
         }else{

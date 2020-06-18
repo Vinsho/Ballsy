@@ -30,6 +30,7 @@ public class ObjectMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // adds adjustable movement to objects
         if(Object.tag == "Floater"){
             if(Object.transform.position == startingPosition){
                 point = startingPosition + moveByVector;

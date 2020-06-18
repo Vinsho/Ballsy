@@ -15,6 +15,7 @@ public class LevelGen : MonoBehaviour
     float[] level1 ={2,2,3,4,4};
     float last_x=8;
     void Start()
+    //generate random level for endless mode
     {
         System.Random rnd = new System.Random();
         for (int i = 0; i<50; i++)
